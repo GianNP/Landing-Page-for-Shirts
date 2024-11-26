@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Halaman Pembelian</title>
+    <style>
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            margin: 20px;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            text-align: center;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            max-width: 400px;
+            margin: auto;
+        }
+        input, button {
+            margin: 10px 0;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h2>Form Pembelian</h2>
+    <form id="purchaseForm">
+        <label for="productTitle">Nama Produk:</label>
+        <input type="text" id="productTitle" name="productTitle" value="Vamos T-Shirt" readonly>
+
+        <label for="name">Nama:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="address">Alamat:</label>
+        <input type="text" id="address" name="address" required>
+
+        <label for="quantity">Jumlah:</label>
+        <input type="number" id="quantity" name="quantity" min="1" required>
+
+        <button type="submit">Kirim Pembelian</button>
+    </form>
+
+    <script>
+        document.getElementById('purchaseForm').addEventListener('submit', function(event) {
+    event.preventDefault(); // Mencegah pengiriman form default
+    
+    // Ambil data dari form
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const address = document.getElementById('address').value;
+    const quantity = document.getElementById('quantity').value;
+
+    // Buat pesan untuk WhatsApp
+    const message = `Nama: ${name}\nEmail: ${email}\nAlamat: ${address}\nJumlah: ${quantity}`;
+    
+    // Ganti nomor telepon dengan nomor WhatsApp Anda
+    const phoneNumber = '+6285777487885'; // Ganti dengan nomor WhatsApp Anda
+    const whatsappUrl = `https://api.whatsapp.com/send?phone=+6285777487885&text=${encodeURIComponent(message)}`;
+
+    // Buka WhatsApp dengan pesan yang sudah disiapkan
+    window.open(whatsappUrl, '_blank');
+});
+    </script>
+</body>
+</html>
+

@@ -80,9 +80,9 @@ section {
 .hero {
   color: white;
   text-align: center;
-  padding: 15em 0;
+  padding: 21em 0;
   background-image: 
-    url(../img/shirt-1.png),
+    url(../img/T-Shirt.png),
     radial-gradient(#444, #111);
   background-blend-mode: multiply;
   background-attachment: fixed;
@@ -91,6 +91,10 @@ section {
 }
 
 /*Styles for featured section*/
+
+.featured {
+  margin-top: 75px;
+}
 
 .featured .featured-item {
   /*background: #eee;*/
